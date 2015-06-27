@@ -2,7 +2,7 @@
 
 > A sample site for the O'Reilly "Learn Modern Front-End Web Development" video course.
 
-![Mars-B-Q mockup](https://raw.github.com/learnfrontend/MarsBQ/master/MarsBQ.png)
+![Mars-B-Q mockup](https://raw.githubusercontent.com/LearnFrontEnd/MarsBQ/master/MARSBQ.png)
 
 ## How to use this repository
 
