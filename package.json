@@ -10,5 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
   }
 }
