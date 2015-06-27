@@ -1,0 +1,14 @@
+{
+  "name": "marsbq",
+  "version": "0.1.0",
+  "description": "A sample site for the Learn Front End video course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam D. Scott",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
+}
