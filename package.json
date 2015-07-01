@@ -12,6 +12,7 @@
     "jquery": "^2.1.4"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "browser-sync": "^2.7.13"
   }
 }
