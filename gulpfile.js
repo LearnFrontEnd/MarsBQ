@@ -7,7 +7,6 @@ var uglify = require('gulp-uglify');
 gulp.task('styles', function() {
   gulp.src(['src/styles/**/*.css'])
     .pipe(sourcemaps.init())
-    .pipe(gulp.dest('dist/styles'))
     .pipe(minifyCss())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/styles'))
