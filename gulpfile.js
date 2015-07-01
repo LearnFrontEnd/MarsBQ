@@ -3,6 +3,7 @@ var browserSync = require('browser-sync').create();
 var minifyCss = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
+var imageMin = require('gulp-imagemin');
 
 gulp.task('styles', function() {
   gulp.src(['src/styles/**/*.css'])
@@ -22,12 +23,19 @@ gulp.task('scripts', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('images', function() {
+  gulp.src(['src/img/**/*'])
+    .pipe(imageMin())
+    .pipe(gulp.dest('dist/img'))
+    .pipe(browserSync.stream());
+})
+
 gulp.task('default', function() {
   browserSync.init({
     server: './'
   });
   gulp.watch('src/scripts/**/*.js', ['scripts']);
   gulp.watch('src/styles/**/*.css', ['styles']);
-  gulp.watch('src/img/**/*', browserSync.reload);
+  gulp.watch('src/img/**/*', ['images']);
   gulp.watch('*.html', browserSync.reload);
 });
