@@ -33,15 +33,23 @@ gulp.task('images', function() {
 });
 
 gulp.task('templates', function(){
-return gulp.src([
-  'src/templates/**/*.hbs'
-  ])
-  .pipe(handlebars())
-  // give the files an .html extention
-  .pipe(rename(function (path) {
-    path.extname = '.html';
-  }))
-  .pipe(gulp.dest('./'));
+
+  var data = {};
+
+  var options = {
+    batch : ['./src/templates/partials']
+  };
+
+  return gulp.src([
+    'src/templates/**/*.hbs',
+    '!src/templates/partials/**/*.hbs'
+    ])
+    .pipe(handlebars(data, options))
+    // give the files an .html extention
+    .pipe(rename(function (path) {
+      path.extname = '.html';
+    }))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('default', ['templates', 'scripts', 'styles', 'images'], function() {
