@@ -28,5 +28,5 @@ git checkout 301
 Install all of the dependencies
 
 ```
-npm Install
+npm install
 ```
