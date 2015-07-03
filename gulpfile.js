@@ -4,6 +4,8 @@ var minifyCss = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var imageMin = require('gulp-imagemin');
+var handlebars = require('gulp-compile-handlebars');
+var rename = require('gulp-rename');
 
 gulp.task('styles', function() {
   gulp.src(['src/styles/**/*.css'])
@@ -30,12 +32,25 @@ gulp.task('images', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('default', function() {
+gulp.task('templates', function(){
+return gulp.src([
+  'src/templates/**/*.hbs'
+  ])
+  .pipe(handlebars())
+  // give the files an .html extention
+  .pipe(rename(function (path) {
+    path.extname = '.html';
+  }))
+  .pipe(gulp.dest('./'));
+});
+
+gulp.task('default', ['templates', 'scripts', 'styles', 'images'], function() {
   browserSync.init({
     server: './'
   });
   gulp.watch('src/scripts/**/*.js', ['scripts']);
   gulp.watch('src/styles/**/*.css', ['styles']);
   gulp.watch('src/img/**/*', ['images']);
+  gulp.watch('src/templates/**/*.hbs', ['templates']);
   gulp.watch('*.html', browserSync.reload);
 });
