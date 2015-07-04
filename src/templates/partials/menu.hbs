@@ -1,4 +1,13 @@
 <section id="menu">
   <h2>Menu</h2>
   <p>Please vote for your favorite items</p>
+
+  <ul>
+    {{#each menu}}
+      <li>
+        <span class="menu-title">{{title}}</span>
+        <span class="menu-count">{{count}}</span>
+      </li>
+    {{/each}}
+  </ul>
 </section>
