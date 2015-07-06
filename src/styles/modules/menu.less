@@ -4,12 +4,25 @@
 
 .menu-list {
   li {
-    padding: 1em;
+    padding: 4px;
     margin-bottom: 1em;
-    font-weight: bold;
-    font-size: 1.1em;
+    line-height: 2;
+
+    .menu-title {
+      display: inline-block;
+      font-weight: bold;
+      width: 80%;
+    }
+
+    .menu-count {
+      display: inline-block;
+      width: 20%;
+      background: @light-bg;
+      color: @red;
+    }
   }
 }
+
 
 @media screen and (min-width: 620px) {
 
@@ -20,7 +33,8 @@
 
     li {
       width: 31%;
-      margin: 10px 1%;  
+      margin: 10px 1%;
     }
   }
+  
 }
