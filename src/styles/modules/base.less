@@ -25,12 +25,36 @@ object {
   .reset;
 }
 
+.section-list {
+
+  li {
+    list-style: none;
+  }
+
+}
+
+/* Link styles */
+
+a,
+a:visited,
+.link {
+
+  background: @red;
+  color: @light-bg;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background: lighten(@red, 2%);
+    color: darken(@light-bg, 10%);
+  }
+
+}
+
 .btn {
   display: block;
   max-width: 300px;
   margin: 0 auto;
-  background: @red;
-  color: @light-bg;
   text-align: center;
   font-size: 1.6em;
   padding: 1em;
