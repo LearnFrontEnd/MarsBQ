@@ -5,6 +5,12 @@ html {
   color: @brown;
   font-size: 1em;
   line-height: 1.4;
+  box-sizing: border-box;
+}
+
+/* normalize the box model */
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 /* make images and embedded media fluid */
@@ -18,12 +24,16 @@ object {
 .wrap {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 2em 1em;
+  text-align: center;
 }
 
 .section-list,
 .section-heading {
   .reset;
 }
+
+/* list styles and layout */
 
 .section-list {
 
@@ -42,6 +52,7 @@ a:visited,
   background: @red;
   color: @light-bg;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover,
   &:focus {
