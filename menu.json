@@ -2,39 +2,48 @@
   "menuItems":[
     {
       "title": "Veggie Burger",
-      "count": 257
+      "count": 257,
+      "id": 1
     },
     {
       "title": "Tofu Dog",
-      "count": 192
+      "count": 192,
+      "id": 2
     },
     {
       "title": "Watermelon",
-      "count": 170
+      "count": 170,
+      "id": 3
     },
     {
       "title": "Potato Salad",
-      "count": 122
+      "count": 122,
+      "id": 4
     },
     {
       "title": "Pasta Salad",
-      "count": 99
+      "count": 99,
+      "id": 5
     },
     {
       "title": "Grilled Vegetables",
-      "count": 87
+      "count": 87,
+      "id": 6
     },
     {
       "title": "Guacamole",
-      "count": 56
+      "count": 56,
+      "id": 7
     },
     {
       "title": "Corn",
-      "count": 37
+      "count": 37,
+      "id": 8
     },
     {
       "title": "Bulgar Salad",
-      "count": 21
+      "count": 21,
+      "id": 9
     }
   ]
 }
