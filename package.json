@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "countdown": "^2.6.0",
-    "normalize.css": "^3.0.3"
+    "normalize.css": "^3.0.3",
+    "superagent": "^1.2.0"
   },
   "devDependencies": {
     "browser-sync": "^2.7.13",
