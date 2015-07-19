@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var request = require('superagent');
 
 var model = module.exports = {
 
@@ -19,10 +19,11 @@ var model = module.exports = {
 
   /* get the data */
   getData: function() {
-    $.get('menu.json', function(data){
-      model.menu = data.menuItems;
-    });
+    request.get('menu.json', function(err, res) {
+      model.menu = JSON.parse(res.text).menuItems;
+    })
   },
+
 
   /* current and future dates */
   currentDate: new Date(),
