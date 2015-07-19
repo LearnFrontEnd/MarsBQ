@@ -7,6 +7,7 @@ var view = module.exports = {
     view.registerClick();
   },
 
+  /* display the event countdown */
   showCountdown: function() {
     var diff = helper.dateDiff();
 
@@ -15,6 +16,7 @@ var view = module.exports = {
     document.querySelector('#hours').innerHTML = diff.hours;
   },
 
+  /* register a click handler for each menu list item */
   registerClick: function() {
     var id;
     var listItem = document.querySelectorAll('#menu li');
@@ -30,12 +32,13 @@ var view = module.exports = {
     }
   },
 
-    updateCount: function() {
-      var item = helper.getCurrent();
-      var li = document.querySelector('[data-id="' + item.id + '"]');//$('li[data-id=' + item.id + ']');
-      var count = li.querySelector('.menu-count');
+  /* visibly update the menu item count */
+  updateCount: function() {
+    var item = helper.getCurrent();
+    var li = document.querySelector('[data-id="' + item.id + '"]');//$('li[data-id=' + item.id + ']');
+    var count = li.querySelector('.menu-count');
 
-      count.innerHTML = item.count;
-    }
+    count.innerHTML = item.count;
+  }
 
 };
