@@ -3,9 +3,9 @@
     <h2 class="section-heading">Menu</h2>
     <p>Please vote for your favorite items</p>
 
-    <ul class="section-list menu-list">
+    <ul class="section-list menu-list" id="menu">
       {{#each menu}}
-        <li class="link">
+        <li class="link" data-id={{id}}>
           <span class="menu-title">{{title}}</span><span class="menu-count">{{count}}</span>
         </li>
       {{/each}}
