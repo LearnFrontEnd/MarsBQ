@@ -9,7 +9,7 @@
   "author": "Adam D. Scott",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^2.1.4",
+    "countdown": "^2.6.0",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {
