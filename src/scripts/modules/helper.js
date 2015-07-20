@@ -17,7 +17,7 @@ var helper = module.exports = {
     }
   },
 
-  /* get teh current menu item */
+  /* get the current menu item */
   getCurrent: function() {
     return model.menuItem;
   },
