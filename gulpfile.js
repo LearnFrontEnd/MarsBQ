@@ -50,7 +50,7 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('test', function() {
+gulp.task('unit-test', function() {
   gulp.src('test/*.js')
     .pipe(mocha())
 });
@@ -92,13 +92,15 @@ gulp.task('templates', function(){
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['templates', 'scripts', 'styles', 'images'], function() {
+gulp.task('test', ['lint', 'unit-test', 'access']);
+
+gulp.task('default', ['templates', 'scripts', 'styles', 'images', 'test'], function() {
     browserSync.init({
       server: './'
     });
-    gulp.watch('src/scripts/**/*.js', ['lint', 'test', 'scripts']);
-    gulp.watch('src/styles/**/*.less', ['styles']);
+    gulp.watch('src/scripts/**/*.js', ['lint', 'unit-test', 'scripts']);
+    gulp.watch('src/styles/**/*.less', ['styles', 'access']);
     gulp.watch('src/img/**/*', ['images']);
-    gulp.watch('src/templates/**/*.hbs', ['templates']);
+    gulp.watch('src/templates/**/*.hbs', ['templates', 'access']);
     gulp.watch('*.html', browserSync.reload);
 });
