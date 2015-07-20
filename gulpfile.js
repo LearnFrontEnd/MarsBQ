@@ -52,7 +52,7 @@ gulp.task('lint', function() {
 gulp.task('test', function() {
   gulp.src('test/*.js')
     .pipe(mocha())
-})
+});
 
 gulp.task('images', function() {
   gulp.src(['src/img/**/*'])
