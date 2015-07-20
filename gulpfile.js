@@ -13,19 +13,20 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
+var a11y = require('gulp-a11y');
 
 var menu = require('./menu.json');
 
-  gulp.task('styles', function() {
-    gulp.src(['src/styles/main.less'])
-      .pipe(sourcemaps.init())
-      .pipe(less())
-      .pipe(autoprefixer())
-      .pipe(minifyCss())
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest('dist/styles'))
-      .pipe(browserSync.stream());
-  });
+gulp.task('styles', function() {
+  gulp.src(['src/styles/main.less'])
+    .pipe(sourcemaps.init())
+    .pipe(less())
+    .pipe(autoprefixer())
+    .pipe(minifyCss())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(browserSync.stream());
+});
 
 gulp.task('scripts', function() {
   var b = browserify({
@@ -53,6 +54,13 @@ gulp.task('test', function() {
   gulp.src('test/*.js')
     .pipe(mocha())
 });
+
+gulp.task('a11y', function () {
+  return gulp.src('index.html')
+    .pipe(a11y())
+    .pipe(a11y.reporter());
+});
+
 
 gulp.task('images', function() {
   gulp.src(['src/img/**/*'])
