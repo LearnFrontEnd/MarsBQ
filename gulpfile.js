@@ -55,7 +55,7 @@ gulp.task('test', function() {
     .pipe(mocha())
 });
 
-gulp.task('a11y', function () {
+gulp.task('access', function () {
   return gulp.src('index.html')
     .pipe(a11y())
     .pipe(a11y.reporter());
