@@ -26,6 +26,7 @@ var view = module.exports = {
     }
   },
 
+  /* add the event listener for a menu list item */
   addListener: function(listItem) {
     listItem.addEventListener('click', function(){
       id = this.getAttribute('data-id');
