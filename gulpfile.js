@@ -11,6 +11,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var jshint = require('gulp-jshint');
 
 var menu = require('./menu.json');
 
@@ -25,7 +26,7 @@ var menu = require('./menu.json');
       .pipe(browserSync.stream());
   });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', function() {
   var b = browserify({
     entries: 'src/scripts/main.js',
     debug: true
@@ -40,6 +41,12 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest('dist/scripts/'))
     .pipe(browserSync.stream());
 });
+
+gulp.task('lint', function() {
+  gulp.src('src/scripts/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+})
 
 gulp.task('images', function() {
   gulp.src(['src/img/**/*'])
@@ -71,11 +78,11 @@ gulp.task('templates', function(){
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['templates', 'scripts', 'styles', 'images'], function() {
+gulp.task('default', ['templates', 'lint', 'scripts', 'styles', 'images'], function() {
   browserSync.init({
     server: './'
   });
-  gulp.watch('src/scripts/**/*.js', ['scripts']);
+  gulp.watch('src/scripts/**/*.js', ['lint', 'scripts']);
   gulp.watch('src/styles/**/*.less', ['styles']);
   gulp.watch('src/img/**/*', ['images']);
   gulp.watch('src/templates/**/*.hbs', ['templates']);
