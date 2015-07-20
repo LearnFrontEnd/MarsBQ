@@ -22,14 +22,18 @@ var view = module.exports = {
     var listItem = document.querySelectorAll('#menu li');
 
     for(var i = 0; i < listItem.length; i++) {
-      listItem[i].addEventListener('click', function(){
-        id = this.getAttribute('data-id');
-        // add + to make sure the value is an integer
-        helper.setCurrent(+id);
-        helper.increment();
-        view.updateCount();
-      });
+      view.addListener(listItem[i]);
     }
+  },
+
+  addListener: function(listItem) {
+    listItem.addEventListener('click', function(){
+      id = this.getAttribute('data-id');
+      // add + to make sure the value is an integer
+      helper.setCurrent(+id);
+      helper.increment();
+      view.updateCount();
+    });
   },
 
   /* visibly update the menu item count */
